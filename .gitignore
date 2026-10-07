@@ -8,3 +8,9 @@ __pycache__/
 
 # Dados derivados
 *.parquet
+
+# Bases derivadas geradas pelos scripts
+dados/
+
+# Arquivos temporários do Word
+~$*

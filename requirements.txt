@@ -1,0 +1,11 @@
+pandas>=3.0
+numpy>=2.0
+pyarrow>=20.0
+statsmodels>=0.14
+pyfixest>=0.30
+factor_analyzer>=0.5
+scikit-learn>=1.6
+lightgbm>=4.5
+shap>=0.46
+matplotlib>=3.9
+python-docx>=1.1
