@@ -1,0 +1,10 @@
+# Microdados brutos do INEP (3+ GB, públicos; baixar em gov.br/inep)
+MICRODADOS_SAEB_2023/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Dados derivados
+*.parquet
