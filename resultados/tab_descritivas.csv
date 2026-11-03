@@ -1,0 +1,54 @@
+variavel,categoria,ordem,n,pct_ponderado,media_mt,ic95_inf,ic95_sup
+Reprovação,Nunca,0,1390467,80.71,259.31,259.03,259.58
+Reprovação,Uma vez,1,249797,14.79,230.96,230.68,231.23
+Reprovação,Duas ou mais,2,74984,4.5,225.98,225.52,226.44
+Abandono,Nunca,0,1624302,94.63,254.46,254.19,254.73
+Abandono,Uma vez,1,76631,4.53,239.06,238.61,239.5
+Abandono,Duas ou mais,2,14315,0.85,236.75,235.02,238.48
+Tempo de estudo,Não usa,0,252247,14.77,241.17,240.84,241.49
+Tempo de estudo,Menos de 1h,1,777201,45.32,252.25,251.98,252.52
+Tempo de estudo,Entre 1 e 2h,2,572178,33.27,260.77,260.47,261.08
+Tempo de estudo,Mais de 2h,3,113622,6.64,254.72,254.18,255.27
+Distorção idade-série,Não,0,1494866,86.98,257.5,257.24,257.77
+Distorção idade-série,Sim,1,217158,13.02,227.84,227.5,228.18
+Trabalho fora de casa,Não usa,0,1208931,70.37,256.12,255.83,256.41
+Trabalho fora de casa,Menos de 1h,1,105129,6.15,241.04,240.64,241.44
+Trabalho fora de casa,Entre 1 e 2h,2,84218,4.91,245.0,244.58,245.43
+Trabalho fora de casa,Mais de 2h,3,316970,18.57,250.55,250.25,250.85
+Trabalho doméstico,Não usa,0,126239,7.41,241.36,240.92,241.81
+Trabalho doméstico,Menos de 1h,1,486728,28.58,254.1,253.76,254.43
+Trabalho doméstico,Entre 1 e 2h,2,608119,35.73,257.54,257.26,257.82
+Trabalho doméstico,Mais de 2h,3,479740,28.28,251.77,251.5,252.04
+Sexo,Feminino,0,850131,49.52,251.27,251.0,251.54
+Sexo,Masculino,1,841049,49.07,256.12,255.83,256.41
+Sexo,Não declarou,2,24068,1.41,248.62,247.89,249.35
+Cor/raça,Amarela,0,45029,2.62,246.47,245.93,247.02
+Cor/raça,Branca,1,545841,31.82,264.37,264.06,264.68
+Cor/raça,Indígena,2,30354,1.83,237.53,236.63,238.44
+Cor/raça,Não declarou,3,39635,2.33,243.51,242.92,244.1
+Cor/raça,Parda,4,819571,47.58,251.51,251.23,251.79
+Cor/raça,Preta,5,234818,13.82,241.26,240.93,241.59
+Idade de entrada,3 anos ou menos,0,717916,41.56,253.35,253.01,253.69
+Idade de entrada,4 ou 5 anos,1,679250,39.55,255.9,255.61,256.18
+Idade de entrada,6 ou 7 anos,2,261046,15.53,252.93,252.61,253.25
+Idade de entrada,8 anos ou mais,3,57036,3.36,233.14,232.62,233.66
+Localização,Urbana,0,1530412,89.18,254.84,254.55,255.12
+Localização,Rural,1,184836,10.82,243.51,242.81,244.22
+Pais leem em casa,Nunca ou quase nunca,0,577979,33.73,253.72,253.44,254.0
+Pais leem em casa,De vez em quando,1,886136,51.62,253.43,253.15,253.71
+Pais leem em casa,Sempre ou quase sempre,2,251133,14.65,254.01,253.63,254.39
+Conversam sobre a escola,Nunca ou quase nunca,0,229706,13.46,248.27,247.95,248.6
+Conversam sobre a escola,De vez em quando,1,760635,44.34,254.05,253.78,254.32
+Conversam sobre a escola,Sempre ou quase sempre,2,724907,42.19,254.85,254.54,255.16
+Incentivam a estudar,Nunca ou quase nunca,0,65577,3.85,251.63,251.1,252.17
+Incentivam a estudar,De vez em quando,1,294010,17.16,256.4,256.09,256.72
+Incentivam a estudar,Sempre ou quase sempre,2,1355661,78.99,253.1,252.83,253.38
+Incentivam a fazer a tarefa,Nunca ou quase nunca,0,150121,8.78,257.48,257.06,257.89
+Incentivam a fazer a tarefa,De vez em quando,1,416177,24.24,254.71,254.41,255.02
+Incentivam a fazer a tarefa,Sempre ou quase sempre,2,1148950,66.99,252.71,252.43,252.98
+Incentivam a comparecer às aulas,Nunca ou quase nunca,0,44506,2.62,252.69,252.04,253.35
+Incentivam a comparecer às aulas,De vez em quando,1,125973,7.37,251.11,250.7,251.53
+Incentivam a comparecer às aulas,Sempre ou quase sempre,2,1544769,90.01,253.84,253.57,254.11
+Vão às reuniões da escola,Nunca ou quase nunca,0,231616,13.62,251.65,251.29,252.02
+Vão às reuniões da escola,De vez em quando,1,602895,35.23,250.68,250.41,250.96
+Vão às reuniões da escola,Sempre ou quase sempre,2,880737,51.15,256.15,255.85,256.45

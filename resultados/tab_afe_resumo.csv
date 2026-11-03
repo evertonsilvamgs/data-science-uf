@@ -1,0 +1,9 @@
+medida,valor
+n alunos (metade A / B),943651 / 943860
+autovalores (metade A),3.102; 0.880; 0.790; 0.570; 0.370; 0.288
+congruência de Tucker F1 (2 fatores),1.000
+congruência de Tucker F2 (2 fatores),0.999
+"ômega - socialização (le, conversa)",0.478
+"ômega - monitoramento (inc_estudar, inc_tarefa)",0.818
+"ômega - incentivo (inc_estudar, inc_tarefa, inc_comparecer)",0.854
+ômega - 6 itens (1 fator),0.813

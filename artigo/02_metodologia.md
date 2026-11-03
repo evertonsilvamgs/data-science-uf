@@ -2,7 +2,8 @@
 Versão de PROTOCOLO (tempo futuro), redigida antes da estimação dos modelos.
 Após a execução, converter para o pretérito e preencher os campos marcados com [__].
 Números de amostra vêm de resultados/tab_fluxo_amostra.csv (analises/01_preparacao.py).
-Alvo de extensão no template: ~3,5 páginas (≈1.900 palavras com quadros).
+Alvo de extensão (template refs/Template Artigo.docx, artigo de 12–20 p.): ~4 páginas.
+O template exige o tempo passado na versão final; o texto sobre o CEP será preenchido no fechamento (fora da contagem de páginas).
 -->
 
 # METODOLOGIA
@@ -80,13 +81,13 @@ A análise terá quatro etapas.
 - B4: B3 + estudo fora da escola;
 - B5: B4 + envolvimento familiar.
 
-A contribuição de cada bloco será avaliada pela variação do R² e pela estabilidade dos coeficientes. Os erros-padrão serão agrupados por escola, porque estudantes da mesma escola não são observações independentes. Esse modelo corresponde às hipóteses H1, H4, H5 e H6.
+A contribuição de cada bloco será avaliada pela variação do R² e pela estabilidade dos coeficientes. Os erros-padrão serão agrupados por escola, porque estudantes da mesma escola não são observações independentes. Esse modelo corresponde às hipóteses H1, H2 e H3.
 
-**Terceira etapa: comparações dentro das escolas.** O modelo B5 será reestimado com efeitos fixos de escola. Essa especificação compara apenas estudantes da mesma escola e remove todo fator constante no nível escolar, como a rede, a localização, a infraestrutura e a composição social. A diferença entre os coeficientes com e sem efeitos fixos indica quanto de cada associação se deve a diferenças entre escolas (hipóteses H1b e H4b), como sugerem estudos em que a associação entre dever de casa e desempenho muda de sinal entre os níveis individual e escolar (FERNÁNDEZ-ALONSO et al., 2017).
+**Terceira etapa: comparações dentro das escolas.** O modelo B5 será reestimado com efeitos fixos de escola. Essa especificação compara apenas estudantes da mesma escola e remove todo fator constante no nível escolar, como a rede, a localização, a infraestrutura e a composição social. A diferença entre os coeficientes com e sem efeitos fixos indica quanto de cada associação se deve a diferenças entre escolas (hipótese H4), como sugerem estudos em que a associação entre dever de casa e desempenho muda de sinal entre os níveis individual e escolar (FERNÁNDEZ-ALONSO et al., 2017).
 
-Complementarmente, será estimado um modelo multinível de intercepto aleatório (RAUDENBUSH; BRYK, 2002). Nele, o INSE do estudante será centrado na média da escola, e as médias escolares de INSE, de reprovação e de tempo de estudo entrarão como preditores de nível 2. O objetivo é separar os efeitos individuais dos efeitos de composição. Por limitação computacional, esse modelo será estimado em uma amostra aleatória de [3.000] escolas, estratificada por UF.
+Complementarmente, será estimado um modelo multinível de intercepto aleatório (RAUDENBUSH; BRYK, 2002). Nele, o INSE do estudante será centrado na média da escola, e as médias escolares de INSE, de reprovação e de tempo de estudo entrarão como preditores de nível 2. O objetivo é separar os efeitos individuais dos efeitos de composição. Por limitação computacional, esse modelo será estimado em uma amostra aleatória de 3.000 escolas, estratificada por UF.
 
-**Quarta etapa: heterogeneidade.** Para testar se as associações variam com o nível socioeconômico (H7), serão incluídos termos de interação entre o INSE e as variáveis de reprovação e de tempo de estudo no modelo com efeitos fixos.
+**Quarta etapa: heterogeneidade.** Para testar se as associações variam com o nível socioeconômico (H5), serão incluídos termos de interação entre o INSE e as variáveis de reprovação e de tempo de estudo no modelo com efeitos fixos.
 
 Dado o tamanho da amostra, praticamente qualquer coeficiente será estatisticamente significativo. A interpretação, portanto, se apoiará na magnitude dos efeitos, expressos em pontos da escala Saeb e em desvios-padrão, e nos intervalos de confiança, e não apenas nos valores-p.
 
@@ -98,7 +99,7 @@ A robustez será verificada pela repetição do modelo principal:
 
 ## Análise complementar com aprendizado de máquina
 
-O objetivo do estudo é explicativo, e não preditivo, de modo que o aprendizado de máquina terá papel apenas diagnóstico (SHMUELI, 2010). Será ajustado um modelo de *gradient boosting* (LightGBM) com as mesmas variáveis do modelo B5, em uma amostra aleatória de [300 mil] estudantes. O desempenho será avaliado por validação cruzada em cinco partições agrupadas por escola, o que impede que estudantes da mesma escola estejam simultaneamente nos dados de treino e de teste. O erro quadrático médio e o R² fora da amostra serão comparados aos da regressão linear com as mesmas variáveis. Ganho expressivo do modelo não linear indicará relações ou interações não captadas pela especificação linear. Essas relações serão examinadas por valores SHAP (LUNDBERG; LEE, 2017), com atenção ao formato da associação do tempo de estudo e do INSE. Os valores SHAP descrevem a contribuição das variáveis para as previsões do modelo e não serão interpretados como efeitos causais.
+O objetivo do estudo é explicativo, e não preditivo, de modo que o aprendizado de máquina terá papel apenas diagnóstico (SHMUELI, 2010). Será ajustado um modelo de *gradient boosting* (LightGBM) com as mesmas variáveis do modelo B5, em uma amostra aleatória de 300 mil estudantes. O desempenho será avaliado por validação cruzada em cinco partições agrupadas por escola, o que impede que estudantes da mesma escola estejam simultaneamente nos dados de treino e de teste. O erro quadrático médio e o R² fora da amostra serão comparados aos da regressão linear com as mesmas variáveis. Ganho expressivo do modelo não linear indicará relações ou interações não captadas pela especificação linear. Essas relações serão examinadas por valores SHAP (LUNDBERG; LEE, 2017), com atenção ao formato da associação do tempo de estudo e do INSE. Os valores SHAP descrevem a contribuição das variáveis para as previsões do modelo e não serão interpretados como efeitos causais.
 
 ## Relação com o PISA 2025
 
@@ -109,11 +110,11 @@ Os resultados do PISA 2025 foram divulgados em setembro de 2026 (OECD, 2026a). A
 - ao período de aplicação;
 - ao tratamento da proficiência: estimativa pontual no Saeb e valores plausíveis no PISA (RUTKOWSKI et al., 2010).
 
-Assim, as escalas não serão convertidas uma na outra. Três comparações serão feitas (H9):
+Assim, as escalas não serão convertidas uma na outra. Três comparações serão feitas (H6):
 1. a proporção da variância da proficiência associada ao nível socioeconômico no Saeb (R² do INSE) com a reportada pela OCDE para o índice socioeconômico do PISA (ESCS) no Brasil;
 2. a direção das associações de reprovação e de envolvimento familiar com as relações análogas descritas pela OCDE;
 3. a ausência de registro de faltas no Saeb com os indicadores de frequência do PISA 2025 (OECD, 2026b), discutindo o que essa lacuna implica para a interpretação da trajetória escolar como aproximação da frequência.
 
 ## Reprodutibilidade e aspectos éticos
 
-As análises serão feitas em Python (versão 3.13), com as bibliotecas pandas, statsmodels, pyfixest, factor_analyzer, lightgbm e shap. O código será organizado em scripts numerados, com semente aleatória fixa e versões registradas, e ficará disponível em repositório. O estudo usa apenas dados públicos e anonimizados, dispensando apreciação por comitê de ética. Não haverá tentativa de reidentificar escolas ou municípios. Os resultados serão apresentados de forma agregada, sem classificação de escolas ou de redes e sem interpretações que atribuam responsabilidade individual a estudantes, famílias ou docentes.
+As análises serão feitas em Python (versão 3.13), com as bibliotecas pandas, statsmodels, pyfixest, factor_analyzer, lightgbm e shap. O código será organizado em scripts numerados, com semente aleatória fixa e versões registradas, e ficará disponível em repositório. O estudo usa apenas dados públicos e anonimizados, sem acesso a informações que permitam identificar os participantes, e por isso não foi submetido a Comitê de Ética em Pesquisa [texto final sobre o CEP a ser preenchido no fechamento]. Não haverá tentativa de reidentificar escolas ou municípios. Os resultados serão apresentados de forma agregada, sem classificação de escolas ou de redes e sem interpretações que atribuam responsabilidade individual a estudantes, famílias ou docentes.

@@ -1,0 +1,3 @@
+metodo,escolas,alunos,icc,tau2,sigma2
+"ANOVA (todas as escolas, não ponderado)",36176,1715248,0.1725,,
+"Multinível nulo, REML (amostra de escolas estratificada por UF)",3000,141550,0.195,488.4844,2017.0471

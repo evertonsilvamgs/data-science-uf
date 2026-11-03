@@ -2,6 +2,7 @@ variavel,pct_ausente,prof_mt_presentes,prof_mt_ausentes
 inse,4.25,250.8,233.6
 sexo,1.08,250.3,231.7
 raca,1.39,250.3,236.2
+deficiencia,2.72,250.6,229.1
 reprov,4.44,250.6,238.2
 aband,4.5,250.6,239.2
 estudo,4.62,250.9,233.3
@@ -9,10 +10,9 @@ fam_le,2.99,251.3,211.1
 fam_conversa,2.73,251.2,211.7
 fam_inc_estudar,2.74,251.1,214.7
 fam_inc_tarefa,3.02,251.2,212.9
+fam_inc_comparecer,3.23,251.3,214.8
+fam_reunioes,2.67,251.1,211.7
 idade_entrada,4.63,250.6,239.5
 trab_fora,5.74,251.3,230.2
 distorcao,1.1,250.2,233.3
-fam_inc_comparecer,3.23,251.3,214.8
-fam_reunioes,2.67,251.1,211.7
 escol_mae,2.38,250.4,234.2
-deficiencia,2.72,250.6,229.1

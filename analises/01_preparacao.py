@@ -204,9 +204,9 @@ def main() -> None:
                       validate="m:1").drop(columns="ID_ESCOLA")
 
     # Casos completos para o modelo principal (registrado no fluxo; a base salva mantém todos)
-    vars_modelo = ["prof_mt", "inse", "sexo", "raca", "reprov", "aband", "estudo",
-                   "fam_le", "fam_conversa", "fam_inc_estudar", "fam_inc_tarefa",
-                   "idade_entrada", "trab_fora"]
+    vars_modelo = ["prof_mt", "inse", "sexo", "raca", "deficiencia", "reprov", "aband", "estudo",
+                   "fam_le", "fam_conversa", "fam_inc_estudar", "fam_inc_tarefa", "fam_inc_comparecer",
+                   "fam_reunioes", "idade_entrada", "trab_fora"]
     completos = base[vars_modelo].notna().all(axis=1)
     base["caso_completo"] = completos.astype("int8")
     fluxo.loc[len(fluxo)] = {"etapa": "Casos completos nas variáveis do modelo principal",
@@ -216,8 +216,7 @@ def main() -> None:
 
     base.to_parquet(cfg.ARQ_BASE_ANALITICA, index=False)
     fluxo.to_csv(cfg.DIR_RESULTADOS / "tab_fluxo_amostra.csv", index=False)
-    tabela_ausentes(base, vars_modelo[1:] + ["distorcao", "fam_inc_comparecer", "fam_reunioes",
-                                             "escol_mae", "deficiencia"]) \
+    tabela_ausentes(base, vars_modelo[1:] + ["distorcao", "escol_mae"]) \
         .to_csv(cfg.DIR_RESULTADOS / "tab_ausentes.csv", index=False)
     q = base["peso_mt"].quantile([0, .01, .05, .25, .5, .75, .95, .99, 1]).round(3)
     pd.DataFrame({"quantil": q.index, "peso_mt": q.values}).to_csv(

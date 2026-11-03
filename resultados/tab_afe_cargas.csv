@@ -1,0 +1,19 @@
+solucao,fator,item,carga_A,carga_B
+1 fator(es),F1,Pais leem em casa,-0.356,-0.354
+1 fator(es),F1,Conversam sobre a escola,-0.636,-0.637
+1 fator(es),F1,Incentivam a estudar,-0.854,-0.853
+1 fator(es),F1,Incentivam a fazer a tarefa,-0.801,-0.797
+1 fator(es),F1,Incentivam a comparecer às aulas,-0.749,-0.748
+1 fator(es),F1,Vão às reuniões da escola,-0.427,-0.428
+2 fator(es),F1,Pais leem em casa,-0.062,-0.073
+2 fator(es),F1,Conversam sobre a escola,0.101,0.139
+2 fator(es),F1,Incentivam a estudar,0.756,0.76
+2 fator(es),F1,Incentivam a fazer a tarefa,0.686,0.681
+2 fator(es),F1,Incentivam a comparecer às aulas,0.883,0.881
+2 fator(es),F1,Vão às reuniões da escola,0.214,0.222
+2 fator(es),F2,Pais leem em casa,0.491,0.509
+2 fator(es),F2,Conversam sobre a escola,0.653,0.615
+2 fator(es),F2,Incentivam a estudar,0.125,0.121
+2 fator(es),F2,Incentivam a fazer a tarefa,0.141,0.144
+2 fator(es),F2,Incentivam a comparecer às aulas,-0.11,-0.109
+2 fator(es),F2,Vão às reuniões da escola,0.25,0.245
