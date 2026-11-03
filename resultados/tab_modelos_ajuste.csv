@@ -1,0 +1,15 @@
+modelo,desfecho,efeitos_fixos,peso,n,r2,r2_intra
+B0 (só INSE),prof_mt,-,peso_mt,1715248,0.0413,
+B1,prof_mt,uf,peso_mt,1715248,0.0817,0.0409
+B2,prof_mt,uf,peso_mt,1715248,0.1,0.0601
+B3,prof_mt,uf,peso_mt,1715248,0.1348,0.0964
+B4,prof_mt,uf,peso_mt,1715248,0.1487,0.1109
+B5,prof_mt,uf,peso_mt,1715248,0.1531,0.1155
+EF escola,prof_mt,id_escola,peso_mt,1715228,0.2659,0.093
+Interações INSE,prof_mt,id_escola,peso_mt,1715228,0.267,0.0944
+Rob. LP (B5),prof_lp,uf,peso_lp,1715248,0.1807,0.1503
+Rob. LP (EF),prof_lp,id_escola,peso_lp,1715228,0.2651,0.1267
+Rob. sem peso (B5),prof_mt,uf,-,1715248,0.1523,0.1153
+Rob. peso aparado p99 (B5),prof_mt,uf,peso_aparado,1715248,0.1528,0.1153
+Rob. distorção (B5),prof_mt,uf,peso_mt,1712024,0.1411,0.103
+Rob. ausentes como categoria (B5),prof_mt,uf,peso_mt,2033281,0.1742,0.1383

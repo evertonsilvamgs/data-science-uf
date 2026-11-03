@@ -48,9 +48,10 @@ O Quadro 1 sintetiza a operacionalização das variáveis.
 | Trajetória | Abandono (Q20) | Nunca (ref.); uma vez ou mais |
 | Trajetória (alternativa) | Distorção idade-série (Q02) | 16 anos ou mais no 9º ano (dois ou mais anos acima da idade esperada) |
 | Uso do tempo | Estudo fora da escola em dias de aula (Q21a) | Não estuda (ref.); menos de 1 h; de 1 a 2 h; mais de 2 h |
-| Família | Socialização acadêmica (Q10a, Q10b) | Índice: pais leem em casa; conversam sobre a escola |
-| Família | Monitoramento (Q10c, Q10d) | Índice: pais incentivam a estudar; incentivam a fazer a tarefa |
-| Família | Participação na escola (Q10f) | Ordinal: frequência de ida às reuniões |
+| Família | Incentivo parental (Q10c, Q10d, Q10e) | Índice padronizado: pais incentivam a estudar, a fazer a tarefa e a comparecer às aulas |
+| Família | Conversa sobre a escola (Q10b) | Nunca (ref.); de vez em quando; sempre |
+| Família | Pais leem em casa (Q10a) | Nunca (ref.); de vez em quando; sempre |
+| Família | Ida às reuniões da escola (Q10f) | Nunca (ref.); de vez em quando; sempre |
 | Controle | INSE do estudante | Contínua, padronizada |
 | Controle | Sexo (Q01); cor/raça (Q04); deficiência (Q05a) | Categóricas |
 | Controle | Idade de entrada na escola (Q17) | Categórica |
@@ -60,7 +61,7 @@ O Quadro 1 sintetiza a operacionalização das variáveis.
 
 Fonte: elaborado pelos autores com base no dicionário de dados do Saeb 2023 (INEP, 2024).
 
-Os índices de envolvimento familiar distinguem práticas de socialização acadêmica e práticas de monitoramento. Essa separação segue a evidência de que as duas formas de envolvimento se relacionam de modo distinto com o desempenho (HILL; TYSON, 2009). A estrutura será testada por análise fatorial exploratória sobre correlações policóricas, em metade aleatória da amostra, e confirmatória, na outra metade. A confiabilidade será avaliada pelo ômega de McDonald. Se a estrutura de dois fatores não se sustentar (cargas inferiores a 0,40 ou ajuste inadequado), os itens serão usados isoladamente.
+A operacionalização do envolvimento familiar partiu da distinção entre práticas de socialização acadêmica e práticas de monitoramento, que se relacionam de modo distinto com o desempenho (HILL; TYSON, 2009). Os seis itens do questionário sobre a família foram submetidos a análise fatorial exploratória (extração por resíduos mínimos e rotação oblimin) sobre correlações policóricas, em uma metade aleatória dos estudantes. A solução foi replicada na outra metade e a concordância foi avaliada pelo coeficiente de congruência de Tucker; a confiabilidade foi avaliada pelo ômega de McDonald. Os itens de incentivo à escolarização (estudar, fazer a tarefa e comparecer às aulas) formaram um fator consistente (cargas de 0,69 a 0,88; ômega = 0,85; congruência ≥ 0,999 entre as metades) e foram combinados em um índice de incentivo parental. O protocolo previa um índice de monitoramento com dois itens; a inclusão do incentivo ao comparecimento decorreu dessa análise. Os itens de socialização acadêmica (ler em casa e conversar sobre a escola) apresentaram confiabilidade insuficiente como índice (ômega = 0,48) e foram usados separadamente, assim como a ida dos pais às reuniões escolares.
 
 ## Preparação dos dados
 
