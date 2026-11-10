@@ -1,0 +1,4 @@
+amostra,n,r2_inse_pct,dp_prof,dif_quartos_extremos_pontos,dif_quartos_extremos_dp,confiab_aprox_min,confiab_aprox_max
+"Públicas, amostra do modelo (casos completos)",1715248,4.1274,49.4212,25.9004,0.5241,0.7322,0.7888
+"Públicas, todos com INSE e proficiência",1946766,4.2255,49.9761,26.5811,0.5319,0.7321,0.7887
+"Públicas e privadas, todos com INSE e proficiência",1980719,9.6787,52.8584,41.77,0.7902,0.77,0.813

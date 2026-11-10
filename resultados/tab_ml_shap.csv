@@ -1,0 +1,17 @@
+variavel,shap_medio_abs,rotulo
+reprov,7.687,Reprovação
+uf,5.927,UF
+inse,5.083,INSE
+estudo,4.749,Tempo de estudo
+sexo,4.604,Sexo
+raca,3.825,Cor/raça
+trab_fora,2.512,Trabalho fora de casa
+incentivo,2.358,Incentivo dos pais
+idade_entrada,1.824,Idade de entrada na escola
+fam_reunioes,1.328,Vão às reuniões
+capital,1.077,Capital
+fam_conversa,0.969,Conversam sobre a escola
+fam_le,0.79,Pais leem em casa
+deficiencia,0.515,Deficiência
+rural,0.512,Escola rural
+aband,0.305,Abandono
