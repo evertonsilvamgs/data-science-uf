@@ -85,7 +85,7 @@ As figuras e tabelas já estão incluídas no orçamento de cada seção. A prev
 |---|---|---|---|
 | P1 | **Comitê de Ética (CEP).** O template pede o número de aprovação | Equipe | Redigida a dispensa com base na Resolução CNS nº 510/2016, art. 1º, parágrafo único, incisos II e V (dados públicos e anonimizados). **Confirmar com o orientador** |
 | P3 | **Declaração de uso de IA** | Equipe | Rascunho em `artigo/declaracao_ia.md` (Claude Opus 5.5 via Claude Code). Conferir as ferramentas, datar e assinar |
-| P5 | **Repositório de replicação** | Equipe | Resolvida em 24/11/2026: https://github.com/evertonsilvamgs/data-science-uf (histórico limpo dos materiais da disciplina) |
+| P5 | **Repositório de replicação** | Equipe | Resolvida em 24/11/2026: https://github.com/evertonsilvamgs/desempenho-escolar-saeb-pisa (histórico limpo dos materiais da disciplina) |
 
 ## Fechamento (24/11/2026)
 
