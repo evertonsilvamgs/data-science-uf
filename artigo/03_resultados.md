@@ -10,7 +10,7 @@ Figuras: analises/06_figuras_artigo.py
 
 ## Descrição da amostra
 
-Na amostra analítica, a proficiência média em Matemática foi de 253,6 pontos (DP de 49,4). Entre os estudantes, 19,3% declararam ter sido reprovados ao menos uma vez, 5,4% ter abandonado a escola e 14,8% não estudar fora da escola nos dias de aula. A Figura 2 apresenta as médias de proficiência por categoria. Os estudantes nunca reprovados tiveram média de 259,3 pontos, 28 pontos acima dos reprovados uma vez e 33 acima dos reprovados duas ou mais vezes. A média cresceu com o tempo de estudo até a faixa de 1 a 2 horas (260,8) e foi menor entre os que estudam mais de 2 horas (254,7). Os estudantes cujos pais conversam sobre a escola tiveram médias maiores, enquanto a média diminuiu à medida que aumentou a frequência com que os pais incentivam a fazer a tarefa. A correlação intraclasse foi de 0,17 (0,20 no modelo multinível nulo): cerca de um quinto da variância da proficiência se situa entre escolas, e o restante, entre estudantes da mesma escola.
+A proficiência média em Matemática foi de 253,6 pontos (DP de 49,4); 19,3% dos estudantes declararam ter sido reprovados ao menos uma vez e 14,8% não estudar fora da escola. A Figura 2 mostra diferenças de 28 a 33 pontos entre os nunca reprovados e os reprovados, médias crescentes com o tempo de estudo até a faixa de 1 a 2 horas e média menor entre os estudantes mais cobrados pelos pais. A correlação intraclasse foi de 0,17 (0,20 no modelo multinível nulo): cerca de um quinto da variância se situa entre escolas.
 
 **Figura 2 – Proficiência média em Matemática por categoria de trajetória, tempo de estudo e envolvimento familiar**
 
@@ -20,23 +20,9 @@ Fonte: elaborada pelos autores a partir dos microdados do Saeb 2023 (INEP, 2024)
 
 ## Modelos em blocos
 
-A Tabela 1 apresenta a variância explicada em cada modelo. Sozinho, o INSE explicou 4,1% da variância da proficiência. A trajetória escolar foi o bloco que mais acrescentou à explicação (3,5 pontos percentuais), seguida do INSE (1,8) e do tempo de estudo (1,4); o envolvimento familiar acrescentou 0,4 ponto. O modelo completo explicou 15,3% da variância, e a inclusão dos efeitos fixos de escola elevou esse valor para 26,6%.
+Sozinho, o INSE explicou 4,1% da variância da proficiência. Nos modelos em blocos, o R² passou de 8,2% (B1) para 15,3% (B5): a trajetória escolar foi o bloco que mais acrescentou (3,5 pontos percentuais), seguida do INSE (1,8) e do tempo de estudo (1,4), e o envolvimento familiar acrescentou 0,4 ponto. Com os efeitos fixos de escola, o R² chegou a 26,6%.
 
-**Tabela 1 – Variância da proficiência em Matemática explicada pelos modelos**
-
-| Modelo | Variáveis incluídas | R² (%) | Acréscimo (p.p.) |
-|---|---|---|---|
-| B0 | Somente INSE | 4,1 | – |
-| B1 | Controles demográficos e UF | 8,2 | – |
-| B2 | B1 + INSE | 10,0 | 1,8 |
-| B3 | B2 + trajetória escolar | 13,5 | 3,5 |
-| B4 | B3 + tempo de estudo | 14,9 | 1,4 |
-| B5 | B4 + envolvimento familiar | 15,3 | 0,4 |
-| B5 com efeitos fixos | B5 + uma constante por escola | 26,6 | – |
-
-Fonte: elaborada pelos autores a partir dos microdados do Saeb 2023 (INEP, 2024).
-
-A Figura 3 apresenta os coeficientes do modelo B5, que indicam a diferença de proficiência associada a cada categoria em relação à de referência, mantidos constantes os demais fatores. Ter sido reprovado uma vez associou-se a 22,4 pontos a menos (0,45 DP), e duas ou mais vezes, a 24,5 pontos a menos (0,50 DP). O abandono, depois de considerada a reprovação, teve associação próxima de zero (−0,5 ponto). Em relação a quem não estuda fora da escola, estudar menos de 1 hora associou-se a 11,9 pontos a mais, de 1 a 2 horas, a 20,0 pontos (0,40 DP), e mais de 2 horas, a 17,3 pontos. Entre as práticas familiares, conversar sobre a escola de vez em quando ou sempre associou-se a 3,7 e 2,8 pontos a mais, e cada DP do índice de incentivo, a 3,1 pontos a menos (0,06 DP); a leitura dos pais e a ida às reuniões tiveram associações de até 2 pontos, em direções diferentes. O coeficiente do INSE caiu de 10,0 pontos por DP, quando sozinho, para 6,2 no modelo B5.
+A Figura 3 apresenta os coeficientes do modelo B5, mantidos constantes os demais fatores. Ter sido reprovado uma vez associou-se a 22,4 pontos a menos (0,45 DP), e estudar de 1 a 2 horas por dia, a 20,0 pontos a mais (0,40 DP) que não estudar, valor superior ao de quem estuda mais de 2 horas (17,3). O abandono, depois de considerada a reprovação, teve associação próxima de zero. Conversar sobre a escola associou-se a cerca de 3 pontos a mais, e cada DP do índice de incentivo, a 3,1 pontos a menos (0,06 DP). O coeficiente do INSE caiu de 10,0 pontos por DP, quando sozinho, para 6,2.
 
 **Figura 3 – Coeficientes do modelo B5 e do modelo com efeitos fixos de escola**
 

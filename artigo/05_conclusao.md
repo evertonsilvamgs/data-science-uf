@@ -11,4 +11,4 @@ As associações individuais mudaram pouco na comparação entre estudantes da m
 
 Para escolas e redes de ensino, os resultados sugerem acompanhar a trajetória dos estudantes antes que a reprovação ocorra, orientar rotinas de estudo regulares e tratar a cobrança relatada pelos estudantes como possível sinal de dificuldade, e não como sua causa. Para o Inep, sugerem incluir no questionário do Saeb uma pergunta sobre a frequência às aulas.
 
-O estudo é transversal e baseado em respostas autodeclaradas, o que impede conclusões causais e admite causalidade reversa, e restringe-se ao 9º ano da rede pública. Trabalhos futuros podem replicar a análise com os microdados do PISA 2025, acompanhar coortes de estudantes ao longo do tempo e estender a investigação ao 5º ano e ao ensino médio.
+Por ser transversal, o estudo não permite conclusões causais. Trabalhos futuros podem replicar a análise com os microdados do PISA 2025, acompanhar coortes de estudantes ao longo do tempo e estender a investigação ao 5º ano e ao ensino médio.
