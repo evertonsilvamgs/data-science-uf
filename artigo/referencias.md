@@ -15,7 +15,9 @@ ANDRADE, J. M.; LAROS, J. A. Fatores associados ao desempenho escolar: estudo mu
 
 ANDRADE, R. J.; SOARES, J. F. O efeito da escola básica brasileira. **Estudos em Avaliação Educacional**, São Paulo, v. 19, n. 41, p. 379-406, 2008. DOI: https://doi.org/10.18222/eae194120082067.
 
-BOURDIEU, P. Os três estados do capital cultural. *In*: NOGUEIRA, M. A.; CATANI, A. (org.). **Escritos de educação**. Petrópolis: Vozes, 1998. [páginas a verificar]
+BOURDIEU, P. Os três estados do capital cultural. *In*: NOGUEIRA, M. A.; CATANI, A. (org.). **Escritos de educação**. Petrópolis: Vozes, 1998. p. 71-79.
+
+BRASIL. Conselho Nacional de Saúde. Resolução nº 510, de 7 de abril de 2016. Dispõe sobre as normas aplicáveis a pesquisas em Ciências Humanas e Sociais. **Diário Oficial da União**: seção 1, Brasília, DF, 24 maio 2016.
 
 CITO, L.; MARÔCO, J. Beyond the average: mapping educational inequality in Brazil with PISA 2022. **Large-scale Assessments in Education**, v. 14, art. 30, 2026. DOI: https://doi.org/10.1186/s40536-026-00302-0.
 
@@ -26,6 +28,8 @@ COOPER, H.; ROBINSON, J. C.; PATALL, E. A. Does homework improve academic achiev
 FERNÁNDEZ-ALONSO, R. *et al*. Students' achievement and homework assignment strategies. **Frontiers in Psychology**, v. 8, art. 286, 2017. DOI: https://doi.org/10.3389/fpsyg.2017.00286.
 
 GERSHENSON, S.; JACKNOWITZ, A.; BRANNEGAN, A. Are student absences worth the worry in U.S. primary schools? **Education Finance and Policy**, v. 12, n. 2, p. 137-165, 2017. DOI: https://doi.org/10.1162/EDFP_a_00207.
+
+GIL, A. C. **Como elaborar projetos de pesquisa**. 4. ed. São Paulo: Atlas, 2002.
 
 GOTTFRIED, M. A. Evaluating the relationship between student attendance and achievement in urban elementary and middle schools: an instrumental variables approach. **American Educational Research Journal**, v. 47, n. 2, p. 434-465, 2010. DOI: https://doi.org/10.3102/0002831209350494.
 

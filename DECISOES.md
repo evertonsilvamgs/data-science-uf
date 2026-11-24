@@ -3,7 +3,7 @@
 Artigo de Ciência de Dados II (Prof. Ivan Martins, 2026/02)
 Autores: Everton Silva, Enrique Almeida, Raymora Araujo
 Base metodológica: [Relatorio_Deep_Research_Desempenho_Escolar.md](Relatorio_Deep_Research_Desempenho_Escolar.md)
-Última atualização: 03/11/2026
+Última atualização: 24/11/2026
 
 ## Escopo e logística
 
@@ -63,7 +63,7 @@ O template anterior (`template-previa-artigo.docx`, com limite de 7–14 página
 | **METODOLOGIA** | Desenho, fonte de dados, amostra, variáveis, preparação, estratégia analítica, aprendizado de máquina, PISA 2025, reprodutibilidade e ética. **Escrita no passado na versão final** | 4 |
 | **RESULTADOS** | Descritivas, modelos em blocos, efeitos fixos e multinível, heterogeneidade, robustez, aprendizado de máquina | 4 |
 | **DISCUSSÃO** | Comparação com a literatura e com o PISA 2025, interpretação não causal, implicações e limitações | 2,5 |
-| **CONSIDERAÇÕES FINAIS** | Resposta aos objetivos, de forma objetiva | 0,5 |
+| **CONCLUSÃO** | Resposta aos objetivos, implicações, limitações e trabalhos futuros (título "Conclusão", como pedido pelo orientador no artigo de TC) | 1 |
 | **REFERÊNCIAS** | ABNT, apenas obras citadas | 1,5 |
 | **Total** | | **≈ 17** |
 
@@ -72,19 +72,26 @@ A declaração de uso de IA e a informação sobre o Comitê de Ética **não en
 As figuras e tabelas já estão incluídas no orçamento de cada seção. A previsão é de 6 a 8 figuras e tabelas no corpo do artigo.
 
 ### Formatação
-- **Arial** 12, espaçamento entre linhas 1,5, texto justificado.
+- **Times New Roman** 12 em todo o documento, inclusive cabeçalho, tabelas e figuras (pedido da equipe em 24/11/2026, no lugar da Arial do template; o orientador sugeriu Times na revisão do artigo de TC). Espaçamento entre linhas 1,5, texto justificado.
 - Margens: superior e esquerda 3 cm; inferior e direita 2 cm.
-- Resumo e Abstract em Arial 12, com espaçamento simples.
-- Legendas e fontes de tabelas e figuras em Arial 10, centralizadas, espaçamento simples.
+- Resumo e Abstract em Times New Roman 12, com espaçamento simples.
+- Legendas e fontes de tabelas e figuras em Times New Roman 10, centralizadas, espaçamento simples. As figuras do artigo (`analises/06_figuras_artigo.py`) também usam Times New Roman.
 - Figuras em GIF ou JPEG. A fonte das figuras será "Elaborada pelos autores a partir dos microdados do Saeb 2023 (INEP, 2024)", porque elas são geradas pelo nosso código, e não por IA.
 - Citações e referências conforme as normas ABNT em vigor.
 
 ## Pendências
 
-| # | Pendência | Responsável | Observação |
+| # | Pendência | Responsável | Situação em 24/11/2026 |
 |---|---|---|---|
-| P1 | **Comitê de Ética (CEP).** O template pede o número de aprovação | Equipe | **Adiado para o fechamento** (decisão de 07/10/2026). Fora da contagem de páginas |
-| P3 | **Declaração de uso de IA** | Equipe | **Adiado para o fechamento** (decisão de 07/10/2026). Fora da contagem de páginas |
+| P1 | **Comitê de Ética (CEP).** O template pede o número de aprovação | Equipe | Redigida a dispensa com base na Resolução CNS nº 510/2016, art. 1º, parágrafo único, incisos II e V (dados públicos e anonimizados). **Confirmar com o orientador** |
+| P3 | **Declaração de uso de IA** | Equipe | Rascunho em `artigo/declaracao_ia.md` (Claude Opus 5.5 via Claude Code). Conferir as ferramentas, datar e assinar |
+| P5 | **Repositório de replicação** | Equipe | O texto cita `[endereço do repositório a preencher]` (destacado em amarelo) |
+
+## Fechamento (24/11/2026)
+
+- Estilo alinhado ao artigo de TC revisado pelo orientador: Metodologia abre com parágrafo e Figura 1 (desenho do estudo), classificação do estudo justificada, lacuna formulada com cautela, objetivos específicos sem métricas, Discussão interpretativa, seção "Conclusão".
+- Figuras finais redesenhadas a partir das tabelas de `resultados/` por `analises/06_figuras_artigo.py` (sem reestimar modelos). A figura de interação foi retirada; o painel (c) da Figura 4 mostra o mesmo padrão.
+- Extensão medida no Word: **18 páginas** + declaração de IA (p. 19, fora da contagem).
 
 Resolvidas em 07/10/2026:
 - **P2:** Ivan Martins entra como orientador.

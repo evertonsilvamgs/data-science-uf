@@ -1,17 +1,17 @@
 """Gera o artigo em .docx a partir dos rascunhos em Markdown, usando o template da UNIFIMES.
 
 Uso:  python artigo/gerar_docx.py
-Saída: artigo/saida/artigo_rascunho.docx
+Saída: artigo/saida/Artigo-Ciencia-de-Dados-II.docx
 
 Convenções do Markdown aceitas:
   # TÍTULO DE SEÇÃO            -> seção primária (negrito, caixa alta)
   ## Subseção                  -> seção secundária (negrito)
-  parágrafo comum              -> corpo (Arial 12, 1,5, justificado, recuo 1,25 cm)
-  - item / 1. item             -> lista
-  | a | b |                    -> tabela (Arial 10, espaçamento simples)
+  parágrafo comum              -> corpo (Times New Roman 12, 1,5, justificado, recuo 1,25 cm)
+  - item / 1. item / a) item   -> lista
+  | a | b |                    -> tabela (Times New Roman 10, espaçamento simples)
   **Tabela 1 – título**        -> legenda (linha inteira em negrito começando com Tabela/Quadro/Figura)
-  Fonte: ...                   -> fonte da tabela/figura (Arial 10, centralizada)
-  ![legenda](caminho.png)      -> figura centralizada
+  Fonte: ...                   -> fonte da tabela/figura (Times New Roman 10, centralizada)
+  ![legenda](caminho.png "13")  -> figura centralizada (largura opcional em cm)
   *(texto)*                    -> marcador de pendência (destacado em amarelo)
   **negrito**, *itálico*, [__] -> formatação inline; colchetes [..] ficam destacados em amarelo
   <!-- ... -->                 -> comentário (ignorado)
@@ -29,9 +29,9 @@ from docx.shared import Cm, Pt
 DIR_ARTIGO = Path(__file__).resolve().parent
 RAIZ = DIR_ARTIGO.parent
 TEMPLATE = RAIZ / "refs" / "Template Artigo.docx"
-SAIDA = DIR_ARTIGO / "saida" / "artigo_rascunho.docx"
+SAIDA = DIR_ARTIGO / "saida" / "Artigo-Ciencia-de-Dados-II.docx"
 
-FONTE = "Arial"
+FONTE = "Times New Roman"  # pedido da equipe (24/11/2026), no lugar da Arial do template
 RECUO = Cm(1.25)
 PALAVRAS_POR_PAGINA = 330  # calibrado em 07/10/2026 com a contagem do Word (15 p. para ~4.270 palavras + quadros)
 
@@ -40,14 +40,14 @@ TITULOS_PADRAO = {
     "02_metodologia.md": "METODOLOGIA",
     "03_resultados.md": "RESULTADOS",
     "04_discussao.md": "DISCUSSÃO",
-    "05_consideracoes_finais.md": "CONSIDERAÇÕES FINAIS",
+    "05_conclusao.md": "CONCLUSÃO",
     "referencias.md": "REFERÊNCIAS",
 }
 
 RE_INLINE = re.compile(r"(\*\*.+?\*\*|\*[^*\s][^*]*?\*|\[[^\]]*\])")
 RE_LEGENDA = re.compile(r"^\*\*(Tabela|Quadro|Figura)\s.+\*\*$")
-RE_IMAGEM = re.compile(r"^!\[(.*?)\]\((.+?)\)$")
-RE_NUMERADA = re.compile(r"^(\d+)\.\s+(.*)$")
+RE_IMAGEM = re.compile(r'^!\[(.*?)\]\((\S+?)(?:\s+"([\d.]+)")?\)$')
+RE_NUMERADA = re.compile(r"^(\d+\.|[a-z]\))\s+(.*)$")
 
 
 # --------------------------------------------------------------------------------------
@@ -127,6 +127,35 @@ def _cabecalho(doc, unidade):
             par.runs[0].text = unidade
 
 
+def _fonte_global(doc):
+    """Troca a fonte de todos os estilos, do padrão do documento, do cabeçalho e do rodapé."""
+    for estilo in doc.styles:
+        if getattr(estilo, "font", None) is not None:
+            estilo.font.name = FONTE
+            rpr = estilo.element.get_or_add_rPr()
+            rf = rpr.find(qn("w:rFonts"))
+            if rf is None:
+                rf = rpr.makeelement(qn("w:rFonts"), {})
+                rpr.append(rf)
+            for attr in ("w:ascii", "w:hAnsi", "w:eastAsia", "w:cs"):
+                rf.set(qn(attr), FONTE)
+            for attr in ("w:asciiTheme", "w:hAnsiTheme", "w:eastAsiaTheme", "w:cstheme"):
+                rf.attrib.pop(qn(attr), None)
+    padrao = doc.styles.element.find(qn("w:docDefaults"))
+    if padrao is not None:
+        for rf in padrao.iter(qn("w:rFonts")):
+            for attr in ("w:ascii", "w:hAnsi", "w:eastAsia", "w:cs"):
+                rf.set(qn(attr), FONTE)
+            for attr in ("w:asciiTheme", "w:hAnsiTheme", "w:eastAsiaTheme", "w:cstheme"):
+                rf.attrib.pop(qn(attr), None)
+    for sec in doc.sections:
+        for parte in (sec.header, sec.footer, sec.first_page_header, sec.first_page_footer):
+            # inclui caixas de texto e marcas de parágrafo, que parte.paragraphs não alcança
+            for rf in parte._element.iter(qn("w:rFonts")):
+                for attr in ("w:ascii", "w:hAnsi", "w:eastAsia", "w:cs"):
+                    rf.set(qn(attr), FONTE)
+
+
 # --------------------------------------------------------------------------------------
 # Blocos
 # --------------------------------------------------------------------------------------
@@ -142,6 +171,7 @@ def secao(doc, texto, nivel=1):
     _formato(par, alinhamento=WD_ALIGN_PARAGRAPH.LEFT, antes=12, depois=6)
     run = par.add_run(texto.upper() if nivel == 1 else texto)
     _fonte(run, 12, negrito=True)
+    _manter_com_seguinte(par)
 
 
 def item_lista(doc, texto, marcador):
@@ -173,29 +203,58 @@ def _bordas(tab):
     tbl_pr.append(bordas)
 
 
+LARGURA_TEXTO = 16.0  # cm: 21 cm - margens de 3 e 2 cm
+
+
+def _manter_com_seguinte(par, valor=True):
+    par.paragraph_format.keep_with_next = valor
+
+
 def tabela(doc, linhas):
+    """Tabela na largura do texto, colunas proporcionais ao conteúdo, sem quebra entre páginas."""
     celulas = [[c.strip() for c in l.strip().strip("|").split("|")] for l in linhas]
     celulas = [r for r in celulas if not all(re.fullmatch(r":?-{2,}:?", c) for c in r)]
     ncol = max(len(r) for r in celulas)
     tab = doc.add_table(rows=len(celulas), cols=ncol)
     _bordas(tab)
     tab.alignment = WD_TABLE_ALIGNMENT.CENTER
+    tab.autofit = False
+    # peso de cada coluna: comprimento típico do texto (limitado), com mínimo
+    pesos = []
+    for j in range(ncol):
+        tam = [len(r[j]) if j < len(r) else 0 for r in celulas]
+        pesos.append(max(6, min(60, sorted(tam)[len(tam) // 2] * 0.5 + max(tam) * 0.5)))
+    # mínimo: a palavra mais longa da coluna cabe sem ser partida (~0,19 cm por caractere em 10 pt)
+    minimos = [0.45 + 0.19 * max(len(p) for r in celulas if j < len(r) for p in (r[j].split() or [""]))
+               for j in range(ncol)]
+    cm = [LARGURA_TEXTO * w / sum(pesos) for w in pesos]
+    fixas = {j for j in range(ncol) if cm[j] < minimos[j]}
+    resto = LARGURA_TEXTO - sum(minimos[j] for j in fixas)
+    soma_livres = sum(pesos[j] for j in range(ncol) if j not in fixas)
+    cm = [minimos[j] if j in fixas else resto * pesos[j] / soma_livres for j in range(ncol)]
+    larguras = [Cm(c) for c in cm]
     for i, linha in enumerate(celulas):
+        tr_pr = tab.rows[i]._tr.get_or_add_trPr()
+        tr_pr.append(tr_pr.makeelement(qn("w:cantSplit"), {}))
+        if i == 0:
+            tr_pr.append(tr_pr.makeelement(qn("w:tblHeader"), {}))
         for j in range(ncol):
             cel = tab.cell(i, j)
+            cel.width = larguras[j]
             par = cel.paragraphs[0]
             _formato(par, alinhamento=WD_ALIGN_PARAGRAPH.LEFT, entrelinha=1.0)
+            _manter_com_seguinte(par)  # a tabela e a linha de Fonte ficam na mesma página
             _inline(par, linha[j] if j < len(linha) else "", tamanho=10, negrito_base=(i == 0))
-    doc.add_paragraph()
 
 
-def figura(doc, caminho, base):
+def figura(doc, caminho, base, largura=15.0):
     arq = (base / caminho).resolve()
     if not arq.exists():
         legenda_ou_fonte(doc, f"[figura não encontrada: {caminho}]", destaque=True)
         return
-    doc.add_picture(str(arq), width=Cm(15))
+    doc.add_picture(str(arq), width=Cm(largura))
     doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
+    _manter_com_seguinte(doc.paragraphs[-1])
 
 
 # --------------------------------------------------------------------------------------
@@ -237,14 +296,14 @@ def converter_markdown(doc, texto, base):
         elif s.startswith("- "):
             descarregar(); item_lista(doc, s[2:], "•"); palavras += len(s.split())
         elif RE_NUMERADA.match(s):
-            descarregar(); n, t = RE_NUMERADA.match(s).groups(); item_lista(doc, t, f"{n})")
+            descarregar(); n, t = RE_NUMERADA.match(s).groups(); item_lista(doc, t, n.rstrip(".)") + ")")
             palavras += len(t.split())
         elif RE_LEGENDA.match(s):
-            descarregar(); legenda_ou_fonte(doc, s[2:-2])
+            descarregar(); legenda_ou_fonte(doc, s[2:-2]); _manter_com_seguinte(doc.paragraphs[-1])
         elif s.startswith("Fonte:"):
             descarregar(); legenda_ou_fonte(doc, s)
         elif RE_IMAGEM.match(s):
-            descarregar(); figura(doc, RE_IMAGEM.match(s).group(2), base)
+            descarregar(); m = RE_IMAGEM.match(s); figura(doc, m.group(2), base, float(m.group(3) or 15))
         elif s.startswith("*(") and s.endswith(")*"):
             descarregar(); legenda_ou_fonte(doc, s[1:-1], destaque=True)
         else:
@@ -321,18 +380,33 @@ def preambulo(doc, meta):
 
 
 def declaracao_ia(doc):
+    """Declaração de uso de IA (fora da contagem de páginas), em nova página.
+    No arquivo: '# título' centralizado; linhas iniciadas por '>' centralizadas (data e assinaturas)."""
     par = doc.add_paragraph()
     par.add_run().add_break(WD_BREAK.PAGE)
-    par = doc.add_paragraph()
-    _formato(par, alinhamento=WD_ALIGN_PARAGRAPH.CENTER)
-    _fonte(par.add_run("DECLARAÇÃO DO USO DE INTELIGÊNCIA ARTIFICIAL"), 12, negrito=True)
-    legenda_ou_fonte(doc, "(A preencher no fechamento. Fora da contagem de páginas.)", destaque=True)
+    arq = DIR_ARTIGO / "declaracao_ia.md"
+    texto = re.sub(r"<!--.*?-->", "", arq.read_text(encoding="utf-8"), flags=re.S)
+    for bloco in texto.split("\n\n"):
+        b = " ".join(bloco.split())
+        if not b:
+            continue
+        par = doc.add_paragraph()
+        if b.startswith("# "):
+            _formato(par, alinhamento=WD_ALIGN_PARAGRAPH.CENTER, depois=6)
+            _fonte(par.add_run(b[2:]), 12, negrito=True)
+        elif b.startswith(">"):
+            _formato(par, alinhamento=WD_ALIGN_PARAGRAPH.CENTER, antes=12)
+            _inline(par, b[1:].strip())
+        else:
+            _formato(par, recuo=RECUO)
+            _inline(par, b)
 
 
 def main():
     meta = json.loads((DIR_ARTIGO / "metadados.json").read_text(encoding="utf-8"))
     doc = Document(str(TEMPLATE))
     _limpar_corpo(doc)
+    _fonte_global(doc)
     _cabecalho(doc, meta["cabecalho_unidade"])
     preambulo(doc, meta)
 

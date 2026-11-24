@@ -1,121 +1,58 @@
 <!--
-Versão de PROTOCOLO (tempo futuro), redigida antes da estimação dos modelos.
-Após a execução, converter para o pretérito e preencher os campos marcados com [__].
-Números de amostra vêm de resultados/tab_fluxo_amostra.csv (analises/01_preparacao.py).
-Alvo de extensão (template refs/Template Artigo.docx, artigo de 12–20 p.): ~4 páginas.
-O template exige o tempo passado na versão final; o texto sobre o CEP será preenchido no fechamento (fora da contagem de páginas).
+Versão final da METODOLOGIA (pretérito, como exige o template).
+Seguindo a revisão do orientador no artigo de TC: a seção abre com parágrafo (não com subseção),
+classifica o estudo justificando cada termo e traz uma figura com o desenho do estudo.
+Números: resultados/tab_fluxo_amostra.csv, tab_afe_resumo.csv, tab_pesos.csv.
 -->
 
 # METODOLOGIA
 
-## Delineamento da pesquisa
+Realizou-se um estudo quantitativo, observacional e transversal, de caráter explicativo, com dados secundários de uma avaliação em larga escala. O estudo é observacional porque as variáveis não foram manipuladas pelos pesquisadores, mas registradas pelo Saeb, e transversal porque cada estudante foi observado uma única vez, em 2023. O caráter explicativo decorre do propósito de identificar fatores que contribuem para a variação do desempenho (GIL, 2002), por meio de modelos de associação orientados por hipóteses, e não de prever o desempenho de cada estudante (SHMUELI, 2010). Como não houve manipulação nem acompanhamento ao longo do tempo, os resultados foram interpretados como associações, e não como efeitos causais. A Figura 1 resume o desenho: a fonte de dados, as variáveis e as sete etapas de análise, com as hipóteses a que cada uma responde.
 
-Trata-se de um estudo quantitativo, observacional e transversal, de caráter explicativo-correlacional, baseado em dados secundários de uma avaliação educacional em larga escala. O termo "explicativo" designa a modelagem de associações condicionais orientadas por hipóteses teóricas, e não a identificação de efeitos causais (SHMUELI, 2010). Como o desenho não envolve manipulação de variáveis nem acompanhamento longitudinal dos estudantes, os resultados serão interpretados exclusivamente como associações estatísticas. O estudo tem ainda um componente comparativo: os padrões encontrados serão confrontados com os indicadores do Programa Internacional de Avaliação de Estudantes (PISA) 2025 para o Brasil.
+**Figura 1 – Desenho do estudo**
 
-## Fonte de dados e população
+![Desenho do estudo](../resultados/figuras/art_fig1_desenho.jpg "15")
 
-Os dados vêm dos microdados do Sistema de Avaliação da Educação Básica (Saeb) 2023, publicados pelo Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira (INEP, 2024). Será utilizada a base de estudantes do 9º ano do ensino fundamental (TS_ALUNO_9EF). Ela reúne as proficiências em Língua Portuguesa e Matemática e as respostas ao questionário contextual do estudante, que trata de perfil, condições socioeconômicas, trajetória escolar e uso do tempo. Na rede pública, o Saeb 2023 é censitário para essa etapa; na rede privada, é amostral. A população-alvo deste estudo é formada pelos estudantes do 9º ano de escolas públicas brasileiras em 2023. A escolha do 9º ano se justifica pela maior qualidade das respostas ao questionário em relação ao 5º ano e pela maior taxa de comparecimento em relação ao ensino médio. Além disso, essa etapa é a mais próxima da população de 15 anos avaliada pelo PISA.
+Fonte: elaborada pelos autores (2026).
 
-As proficiências são estimadas pela Teoria de Resposta ao Item e expressas na escala única do Saeb, com média 250 e desvio-padrão 50 na população de referência de 1997. Para cada estudante, a base informa uma estimativa pontual e seu erro-padrão, que é em média de 25,3 pontos em Matemática. Por exigência da Lei Geral de Proteção de Dados (LGPD), os códigos de escola e de município são substituídos por máscaras. Elas permitem agrupar os estudantes por escola, mas impedem o cruzamento com o Censo Escolar ou com indicadores municipais (INEP, 2024). Por isso, as variáveis de escola utilizadas serão as do próprio Saeb: as disponíveis na base TS_ESCOLA e as agregadas a partir dos estudantes. A Unidade da Federação (UF) é a única variável geográfica com código real.
+## Dados e amostra
 
-## Amostra analítica
+Os dados vieram dos microdados do Saeb 2023, publicados pelo Inep (INEP, 2024). Utilizou-se a base de estudantes do 9º ano do ensino fundamental, que reúne as proficiências em Língua Portuguesa e Matemática e as respostas ao questionário do estudante, e a base de escolas. Na rede pública, o Saeb 2023 é censitário nessa etapa. O 9º ano foi escolhido por ser a etapa mais próxima da população de 15 anos avaliada pelo PISA e por apresentar respostas ao questionário mais confiáveis que as do 5º ano. As proficiências são estimadas pela Teoria de Resposta ao Item e expressas na escala do Saeb, que tem média 250 e desvio-padrão (DP) 50 na população de referência de 1997; cada estudante tem uma estimativa pontual, com erro-padrão médio de 25 pontos em Matemática. Por exigência da Lei Geral de Proteção de Dados, os códigos de escola e de município são mascarados: permitem agrupar os estudantes por escola, mas não cruzá-los com outras bases, e a Unidade da Federação (UF) é a única variável geográfica com código real.
 
-A amostra analítica seguirá os critérios usados pelo INEP no cálculo dos resultados oficiais, acrescidos do preenchimento do questionário. A Tabela 1 apresenta o efeito de cada filtro. Das 2.502.907 observações da base, 2.447.143 pertencem a escolas públicas. Serão excluídos os registros inconsistentes com o Censo Escolar (13.523), os de estudantes ausentes na prova de Matemática (380.231), os sem proficiência calculável (5.229), os sem peso amostral (142) e os sem questionário preenchido (14.737). Restam 2.033.281 estudantes de 36.181 escolas. O modelo principal usará os casos completos nas variáveis analisadas: 1.764.251 estudantes (86,8%) de 36.176 escolas.
-
-**Tabela 1 – Fluxo de construção da amostra analítica**
-*(gerar a partir de resultados/tab_fluxo_amostra.csv; tamanho 10, centralizado)*
-Fonte: elaborada pelos autores a partir dos microdados do Saeb 2023 (INEP, 2024).
+A amostra seguiu os critérios do Inep para o cálculo dos resultados oficiais, acrescidos do preenchimento do questionário. Dos 2.447.143 registros de escolas públicas, excluíram-se os inconsistentes com o Censo Escolar (13.523), os de estudantes ausentes na prova de Matemática (380.231), os sem proficiência calculada (5.229), os sem peso amostral (142) e os sem questionário (14.737), restando 2.033.281 estudantes de 36.181 escolas. A análise principal usou os 1.715.248 estudantes (84,4%) de 36.176 escolas com resposta em todas as variáveis do modelo. Os estudantes com alguma resposta ausente tiveram proficiência média menor (231,1 contra 253,6 pontos), o que indica que as ausências não são aleatórias; por isso, uma análise de robustez manteve todos os estudantes, tratando a ausência como categoria. Todas as estimativas usaram o peso amostral do estudante em Matemática, que, na rede pública, funciona como ajuste de não resposta (mediana de 1,07).
 
 ## Variáveis
 
-O Quadro 1 sintetiza a operacionalização das variáveis.
-
-- **Variável dependente:** a proficiência em Matemática. A proficiência em Língua Portuguesa será usada como desfecho alternativo na análise de robustez.
-- **Exposições:** três grupos de variáveis, correspondentes às hipóteses do estudo:
-  - **trajetória escolar:** reprovação e abandono, usados como aproximação da continuidade e da frequência escolar, já que o Saeb não registra faltas;
-  - **uso do tempo:** tempo diário de estudo fora da escola;
-  - **envolvimento familiar:** práticas parentais relatadas pelo estudante.
-- **Variável de controle principal:** o Indicador de Nível Socioeconômico do estudante (INSE). O INSE é construído pelo INEP com base em bens do domicílio, serviços e escolaridade dos responsáveis (ALVES; SOARES; XAVIER, 2014). Por já incorporar a escolaridade dos pais, essa informação não será incluída separadamente, para evitar redundância.
-- **Fora do modelo principal:** variáveis de engajamento e de percepção sobre os professores, por poderem atuar como mediadoras das associações investigadas.
+O Quadro 1 descreve as variáveis. A trajetória escolar foi representada pela reprovação e pelo abandono, já que o Saeb não registra faltas; a distorção idade-série, isto é, ter 16 anos ou mais no 9º ano, foi usada como alternativa. O INSE, construído pelo Inep a partir dos bens do domicílio e da escolaridade dos responsáveis (ALVES; SOARES; XAVIER, 2014), foi o controle socioeconômico; como já incorpora a escolaridade dos pais, essa informação não entrou separadamente. Variáveis de engajamento e de percepção sobre os professores ficaram fora do modelo, por poderem mediar as associações investigadas.
 
 **Quadro 1 – Variáveis do estudo**
 
-| Papel | Variável (item do questionário) | Operacionalização |
+| Grupo | Variável (item do questionário) | Categorias ou medida |
 |---|---|---|
-| Dependente | Proficiência em Matemática | Escala Saeb (contínua); também expressa em desvios-padrão |
-| Dependente (robustez) | Proficiência em Língua Portuguesa | Escala Saeb (contínua) |
-| Trajetória | Reprovação (Q19) | Nunca (ref.); uma vez; duas vezes ou mais |
-| Trajetória | Abandono (Q20) | Nunca (ref.); uma vez ou mais |
-| Trajetória (alternativa) | Distorção idade-série (Q02) | 16 anos ou mais no 9º ano (dois ou mais anos acima da idade esperada) |
-| Uso do tempo | Estudo fora da escola em dias de aula (Q21a) | Não estuda (ref.); menos de 1 h; de 1 a 2 h; mais de 2 h |
-| Família | Incentivo parental (Q10c, Q10d, Q10e) | Índice padronizado: pais incentivam a estudar, a fazer a tarefa e a comparecer às aulas |
-| Família | Conversa sobre a escola (Q10b) | Nunca (ref.); de vez em quando; sempre |
-| Família | Pais leem em casa (Q10a) | Nunca (ref.); de vez em quando; sempre |
-| Família | Ida às reuniões da escola (Q10f) | Nunca (ref.); de vez em quando; sempre |
+| Desfecho | Proficiência em Matemática; em Língua Portuguesa na robustez | Escala Saeb (contínua) |
+| Trajetória | Reprovação (Q19) | Nunca (referência); uma vez; duas ou mais |
+| Trajetória | Abandono (Q20) | Nunca (referência); uma vez ou mais |
+| Estudo | Tempo de estudo fora da escola em dias de aula (Q21a) | Não estuda (referência); menos de 1 h; de 1 a 2 h; mais de 2 h |
+| Família | Pais incentivam a estudar, a fazer a tarefa e a comparecer às aulas (Q10c a Q10e) | Índice padronizado (média 0, DP 1) |
+| Família | Pais conversam sobre a escola (Q10b), leem em casa (Q10a) e vão às reuniões (Q10f) | Nunca (referência); de vez em quando; sempre |
 | Controle | INSE do estudante | Contínua, padronizada |
-| Controle | Sexo (Q01); cor/raça (Q04); deficiência (Q05a) | Categóricas |
-| Controle | Idade de entrada na escola (Q17) | Categórica |
-| Controle | Trabalho fora de casa (Q21d) | Categórica |
-| Controle | Localização (rural/urbana); capital/interior; UF | Categóricas (UF como efeito fixo) |
-| Escola (nível 2) | INSE médio; proporção de reprovados; tempo médio de estudo | Médias ponderadas dos estudantes da escola |
+| Controle | Sexo, cor/raça, deficiência, idade de entrada na escola, trabalho fora de casa, escola rural e capital | Categóricas |
+| Controle | UF | Efeitos fixos |
 
 Fonte: elaborado pelos autores com base no dicionário de dados do Saeb 2023 (INEP, 2024).
 
-A operacionalização do envolvimento familiar partiu da distinção entre práticas de socialização acadêmica e práticas de monitoramento, que se relacionam de modo distinto com o desempenho (HILL; TYSON, 2009). Os seis itens do questionário sobre a família foram submetidos a análise fatorial exploratória (extração por resíduos mínimos e rotação oblimin) sobre correlações policóricas, em uma metade aleatória dos estudantes. A solução foi replicada na outra metade e a concordância foi avaliada pelo coeficiente de congruência de Tucker; a confiabilidade foi avaliada pelo ômega de McDonald. Os itens de incentivo à escolarização (estudar, fazer a tarefa e comparecer às aulas) formaram um fator consistente (cargas de 0,69 a 0,88; ômega = 0,85; congruência ≥ 0,999 entre as metades) e foram combinados em um índice de incentivo parental. O protocolo previa um índice de monitoramento com dois itens; a inclusão do incentivo ao comparecimento decorreu dessa análise. Os itens de socialização acadêmica (ler em casa e conversar sobre a escola) apresentaram confiabilidade insuficiente como índice (ômega = 0,48) e foram usados separadamente, assim como a ida dos pais às reuniões escolares.
+Os seis itens sobre a família foram submetidos à análise fatorial exploratória, técnica que identifica grupos de itens que medem um mesmo traço, sobre correlações policóricas, adequadas a respostas ordinais. A análise foi feita em uma metade aleatória dos estudantes e replicada na outra. Os três itens de incentivo formaram um fator consistente (cargas de 0,69 a 0,88; ômega de McDonald de 0,85; congruência de Tucker de pelo menos 0,999 entre as metades) e foram combinados em um índice. O planejamento previa um índice de monitoramento com dois itens; a inclusão do incentivo à presença nas aulas decorreu dessa análise. Os itens de leitura e de conversa não formaram um índice confiável (ômega de 0,48) e foram usados separadamente, assim como a ida às reuniões.
 
-## Preparação dos dados
+## Procedimento de análise
 
-Os códigos de não resposta do questionário ("*" para marcação inválida e "." para item em branco) serão convertidos em valores ausentes. A unicidade dos identificadores de estudante já foi verificada. A análise de ausências mostrou que os estudantes com informação incompleta têm proficiência média ponderada inferior à dos demais (229,8 contra 253,2 pontos). Os dados, portanto, não são ausentes de forma completamente aleatória. Por isso, a análise principal usará os casos completos, e uma análise de sensibilidade manterá todos os estudantes, codificando a ausência como categoria própria de cada variável.
+Na primeira etapa, calcularam-se médias ponderadas de proficiência por categoria, com intervalos de confiança de 95% que consideram o agrupamento dos estudantes em escolas, e a correlação intraclasse, parcela da variância da proficiência situada entre escolas. Na segunda, estimaram-se regressões lineares ponderadas por mínimos quadrados ordinários, com blocos acrescentados um a um: controles demográficos e UF (B1), INSE (B2), trajetória (B3), tempo de estudo (B4) e família (B5). A contribuição de cada bloco foi medida pelo acréscimo no coeficiente de determinação (R²), proporção da variância explicada pelo modelo, e os erros-padrão foram agrupados por escola, porque estudantes da mesma escola não são observações independentes.
 
-Todas as estimativas usarão o peso amostral do estudante em Matemática. Na rede pública, esse peso funciona essencialmente como ajuste de não resposta: tem mediana de 1,07 e 99% dos valores são inferiores a 1,72. Como 355 estudantes têm pesos superiores a 5, será feita uma análise de sensibilidade com pesos aparados no percentil 99 e outra sem ponderação. As variáveis contínuas usadas como controle serão padronizadas (média 0 e desvio-padrão 1, ponderados). As categóricas serão codificadas em variáveis indicadoras com categoria de referência definida pela teoria.
+Na terceira etapa, o modelo B5 foi reestimado com efeitos fixos de escola, especificação que compara apenas estudantes da mesma escola e remove tudo o que é constante nela, como a rede, a infraestrutura e a composição social; a diferença entre os coeficientes dos dois modelos indica quanto de cada associação se deve a diferenças entre escolas. Complementarmente, ajustou-se um modelo multinível de intercepto aleatório (RAUDENBUSH; BRYK, 2002) em uma amostra de 3.000 escolas estratificada por UF, com o INSE do estudante centrado na média da escola e as médias escolares de INSE, de reprovação e de tempo de estudo como preditores da escola. Na quarta etapa, termos de interação entre o INSE e as variáveis de reprovação e de tempo de estudo verificaram se as associações variam com o nível socioeconômico. Na quinta, o modelo B5 foi repetido com Língua Portuguesa como desfecho, sem pesos, com pesos aparados no percentil 99, com a distorção idade-série no lugar da reprovação e com as ausências como categoria.
 
-## Estratégia analítica
+Na sexta etapa, o aprendizado de máquina teve papel apenas diagnóstico (SHMUELI, 2010). Um modelo de *gradient boosting*, que combina árvores de decisão em sequência e capta relações não lineares e interações sem que precisem ser especificadas, foi ajustado com a biblioteca LightGBM, com as mesmas variáveis do modelo B5, em uma amostra de 300 mil estudantes. Seu desempenho foi comparado ao da regressão linear por validação cruzada em cinco partições agrupadas por escola, de modo que estudantes de uma mesma escola nunca estivessem ao mesmo tempo no treino e no teste. As relações aprendidas foram examinadas por valores SHAP (*SHapley Additive exPlanations*), que repartem cada previsão entre as variáveis (LUNDBERG; LEE, 2017) e não foram lidos como efeitos causais. Na sétima etapa, os padrões do Saeb foram comparados aos indicadores publicados pela OCDE para o Brasil no PISA 2025 (OECD, 2026a, 2026b): a variância associada ao nível socioeconômico, a diferença entre os quartos extremos de nível socioeconômico e a direção das associações. Como as duas avaliações diferem em população, construto, escala, período e tratamento da proficiência (RUTKOWSKI *et al*., 2010), as escalas não foram convertidas uma na outra.
 
-A análise terá quatro etapas.
+Dado o tamanho da amostra, praticamente todos os coeficientes são estatisticamente significativos; a interpretação apoiou-se, por isso, na magnitude das diferenças, expressas em pontos da escala Saeb e em DP, e nos intervalos de confiança. As análises foram feitas em Python 3.13, com as bibliotecas pandas, statsmodels, pyfixest, factor_analyzer, scikit-learn e lightgbm, em *scripts* numerados e com semente aleatória fixa, que compõem um pacote de replicação disponível em [endereço do repositório a preencher]. Por utilizar apenas microdados públicos e anonimizados, a pesquisa dispensou a apreciação por Comitê de Ética em Pesquisa, nos termos do art. 1º, parágrafo único, incisos II e V, da Resolução CNS nº 510/2016 (BRASIL, 2016). Não houve tentativa de reidentificar escolas ou municípios, e os resultados foram apresentados apenas de forma agregada.
 
-**Primeira etapa: descrição.** Serão calculadas a distribuição das variáveis e médias ponderadas de proficiência por categoria das exposições, com intervalos de confiança de 95%. Também será estimado o modelo multinível nulo, que fornece a correlação intraclasse: a parcela da variância da proficiência situada entre escolas.
+## Limitações
 
-**Segunda etapa: regressão linear ponderada em blocos.** Os blocos serão incluídos cumulativamente, para verificar quanto cada grupo de fatores acrescenta à explicação:
-- B1: controles demográficos e territoriais;
-- B2: B1 + INSE;
-- B3: B2 + trajetória escolar;
-- B4: B3 + estudo fora da escola;
-- B5: B4 + envolvimento familiar.
-
-A contribuição de cada bloco será avaliada pela variação do R² e pela estabilidade dos coeficientes. Os erros-padrão serão agrupados por escola, porque estudantes da mesma escola não são observações independentes. Esse modelo corresponde às hipóteses H1, H2 e H3.
-
-**Terceira etapa: comparações dentro das escolas.** O modelo B5 será reestimado com efeitos fixos de escola. Essa especificação compara apenas estudantes da mesma escola e remove todo fator constante no nível escolar, como a rede, a localização, a infraestrutura e a composição social. A diferença entre os coeficientes com e sem efeitos fixos indica quanto de cada associação se deve a diferenças entre escolas (hipótese H4), como sugerem estudos em que a associação entre dever de casa e desempenho muda de sinal entre os níveis individual e escolar (FERNÁNDEZ-ALONSO et al., 2017).
-
-Complementarmente, será estimado um modelo multinível de intercepto aleatório (RAUDENBUSH; BRYK, 2002). Nele, o INSE do estudante será centrado na média da escola, e as médias escolares de INSE, de reprovação e de tempo de estudo entrarão como preditores de nível 2. O objetivo é separar os efeitos individuais dos efeitos de composição. Por limitação computacional, esse modelo será estimado em uma amostra aleatória de 3.000 escolas, estratificada por UF.
-
-**Quarta etapa: heterogeneidade.** Para testar se as associações variam com o nível socioeconômico (H5), serão incluídos termos de interação entre o INSE e as variáveis de reprovação e de tempo de estudo no modelo com efeitos fixos.
-
-Dado o tamanho da amostra, praticamente qualquer coeficiente será estatisticamente significativo. A interpretação, portanto, se apoiará na magnitude dos efeitos, expressos em pontos da escala Saeb e em desvios-padrão, e nos intervalos de confiança, e não apenas nos valores-p.
-
-A robustez será verificada pela repetição do modelo principal:
-- com Língua Portuguesa como desfecho;
-- sem ponderação e com pesos aparados;
-- com a categoria de ausentes;
-- substituindo a reprovação pela distorção idade-série.
-
-## Análise complementar com aprendizado de máquina
-
-O objetivo do estudo é explicativo, e não preditivo, de modo que o aprendizado de máquina terá papel apenas diagnóstico (SHMUELI, 2010). Será ajustado um modelo de *gradient boosting* (LightGBM) com as mesmas variáveis do modelo B5, em uma amostra aleatória de 300 mil estudantes. O desempenho será avaliado por validação cruzada em cinco partições agrupadas por escola, o que impede que estudantes da mesma escola estejam simultaneamente nos dados de treino e de teste. O erro quadrático médio e o R² fora da amostra serão comparados aos da regressão linear com as mesmas variáveis. Ganho expressivo do modelo não linear indicará relações ou interações não captadas pela especificação linear. Essas relações serão examinadas por valores SHAP (LUNDBERG; LEE, 2017), com atenção ao formato da associação do tempo de estudo e do INSE. Os valores SHAP descrevem a contribuição das variáveis para as previsões do modelo e não serão interpretados como efeitos causais.
-
-## Relação com o PISA 2025
-
-Os resultados do PISA 2025 foram divulgados em setembro de 2026 (OECD, 2026a). A comparação será feita no nível dos padrões de associação, e não das médias de desempenho. As duas avaliações diferem quanto:
-- à população: o Saeb avalia uma série escolar, e o PISA, estudantes de 15 anos em qualquer série;
-- ao construto: o Saeb usa uma matriz curricular, e o PISA mede letramento;
-- à escala;
-- ao período de aplicação;
-- ao tratamento da proficiência: estimativa pontual no Saeb e valores plausíveis no PISA (RUTKOWSKI et al., 2010).
-
-Assim, as escalas não serão convertidas uma na outra. Três comparações serão feitas (H6):
-1. a proporção da variância da proficiência associada ao nível socioeconômico no Saeb (R² do INSE) com a reportada pela OCDE para o índice socioeconômico do PISA (ESCS) no Brasil;
-2. a direção das associações de reprovação e de envolvimento familiar com as relações análogas descritas pela OCDE;
-3. a ausência de registro de faltas no Saeb com os indicadores de frequência do PISA 2025 (OECD, 2026b), discutindo o que essa lacuna implica para a interpretação da trajetória escolar como aproximação da frequência.
-
-## Reprodutibilidade e aspectos éticos
-
-As análises serão feitas em Python (versão 3.13), com as bibliotecas pandas, statsmodels, pyfixest, factor_analyzer, scikit-learn e lightgbm (que inclui o cálculo exato dos valores SHAP para modelos de árvores). O código será organizado em scripts numerados, com semente aleatória fixa e versões registradas, e ficará disponível em repositório. O estudo usa apenas dados públicos e anonimizados, sem acesso a informações que permitam identificar os participantes, e por isso não foi submetido a Comitê de Ética em Pesquisa [texto final sobre o CEP a ser preenchido no fechamento]. Não haverá tentativa de reidentificar escolas ou municípios. Os resultados serão apresentados de forma agregada, sem classificação de escolas ou de redes e sem interpretações que atribuam responsabilidade individual a estudantes, famílias ou docentes.
+O desenho transversal não permite estabelecer causalidade, e é plausível a causalidade reversa: estudantes com dificuldades podem estudar mais ou receber mais cobrança dos pais. As variáveis do questionário são autodeclaradas, o Saeb não mede a frequência às aulas, e os 380 mil estudantes ausentes na prova podem diferir dos presentes. A proficiência individual contém erro de medida, que tende a atenuar as associações, e os resultados se restringem ao 9º ano da rede pública.

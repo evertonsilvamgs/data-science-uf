@@ -2,25 +2,46 @@
   "titulo": "TRAJETÓRIA ESCOLAR, TEMPO DE ESTUDO E ENVOLVIMENTO FAMILIAR NA PROFICIÊNCIA EM MATEMÁTICA: EVIDÊNCIAS DO SAEB 2023 E DIÁLOGO COM O PISA 2025",
   "titulo_en": "SCHOOL TRAJECTORY, STUDY TIME AND FAMILY INVOLVEMENT IN MATHEMATICS PROFICIENCY: EVIDENCE FROM SAEB 2023 AND DIALOGUE WITH PISA 2025",
   "autores": [
-    {"nome": "Everton Silva", "afiliacao": 1},
-    {"nome": "Enrique Almeida", "afiliacao": 1},
-    {"nome": "Raymora Araujo", "afiliacao": 1},
-    {"nome": "Ivan Martins", "afiliacao": 1, "papel": "Orientador"}
+    {
+      "nome": "Everton Silva",
+      "afiliacao": 1
+    },
+    {
+      "nome": "Enrique Almeida",
+      "afiliacao": 1
+    },
+    {
+      "nome": "Raymora Araujo",
+      "afiliacao": 1
+    },
+    {
+      "nome": "Ivan Martins",
+      "afiliacao": 1,
+      "papel": "Orientador"
+    }
   ],
   "afiliacoes": {
     "1": "Centro Universitário de Mineiros – UNIFIMES, Mineiros, GO, Brasil."
   },
   "cabecalho_unidade": "Unidade Básica das Ciências Exatas – Curso de Sistemas de Informação",
-  "resumo": "[A redigir ao final, após Resultados e Discussão.]",
-  "palavras_chave": ["Desempenho escolar", "Saeb", "Trajetória escolar"],
-  "abstract": "[To be written at the end.]",
-  "keywords": ["School performance", "Saeb", "School trajectory"],
+  "resumo": "A desigualdade de aprendizagem na educação básica brasileira é bem documentada, mas ainda se conhece pouco sobre o peso de fatores próximos do cotidiano escolar e familiar nos dados posteriores à pandemia. Este trabalho analisou a associação entre a trajetória escolar, o tempo de estudo fora da escola e o envolvimento familiar e a proficiência em Matemática de estudantes do 9º ano de escolas públicas, considerando o nível socioeconômico, e relacionou os padrões encontrados aos do PISA 2025. Em um estudo quantitativo, observacional e transversal com os microdados do Saeb 2023 (1.715.248 estudantes de 36.176 escolas), estimaram-se regressões ponderadas em blocos, modelos com efeitos fixos de escola e multinível, interações com o nível socioeconômico e, como diagnóstico, um modelo LightGBM interpretado por valores SHAP. A reprovação associou-se a 22 pontos a menos na escala do Saeb (0,45 desvio-padrão), diferença que se manteve entre estudantes da mesma escola e foi maior entre os de nível socioeconômico mais alto. Estudar de 1 a 2 horas por dia associou-se a 20 pontos a mais, sem ganho adicional acima disso, e as práticas familiares tiveram associações pequenas, negativa no caso da cobrança. Os padrões tiveram a mesma direção dos observados no PISA 2025, mas o Saeb não mede a frequência às aulas. Conclui-se que o acompanhamento da trajetória escolar merece prioridade e que a cobrança familiar deve ser lida como possível resposta às dificuldades dos estudantes, e não como sua causa.",
+  "palavras_chave": [
+    "Desempenho escolar",
+    "Reprovação",
+    "Saeb"
+  ],
+  "abstract": "Learning inequality in Brazilian basic education is well documented, but less is known about the weight of factors closer to students' everyday school and family life in post-pandemic data. This study analyzed the association of school trajectory, out-of-school study time and family involvement with the mathematics proficiency of 9th-grade public school students, accounting for socioeconomic status, and related the patterns found to those of PISA 2025. In a quantitative, observational and cross-sectional study using Saeb 2023 microdata (1,715,248 students in 36,176 schools), we estimated weighted block regressions, school fixed-effects and multilevel models, interactions with socioeconomic status and, as a diagnostic, a LightGBM model interpreted with SHAP values. Grade retention was associated with 22 fewer points on the Saeb scale (0.45 standard deviation), a gap that held among students of the same school and was larger among those of higher socioeconomic status. Studying 1 to 2 hours a day was associated with 20 more points, with no further gain beyond that, and family practices showed small associations, negative in the case of parental pressure. The patterns had the same direction as those observed in PISA 2025, but Saeb does not measure school attendance. Monitoring school trajectories should therefore be a priority, and parental pressure should be read as a possible response to students' difficulties rather than as their cause.",
+  "keywords": [
+    "School performance",
+    "Grade retention",
+    "Saeb"
+  ],
   "secoes": [
     "01_introducao.md",
     "02_metodologia.md",
     "03_resultados.md",
     "04_discussao.md",
-    "05_consideracoes_finais.md",
+    "05_conclusao.md",
     "referencias.md"
   ]
 }
