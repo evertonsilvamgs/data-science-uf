@@ -17,3 +17,6 @@ dados/
 
 # Saídas geradas do artigo (.docx)
 artigo/saida/
+
+# Materiais da disciplina (enunciado e template institucional): mantidos só localmente
+refs/

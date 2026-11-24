@@ -46,7 +46,7 @@ O estudo analisa a associação entre reprovação, tempo de estudo fora da esco
    python 06_figuras_artigo.py
    ```
 
-4. Para gerar o artigo em `.docx`, a partir da raiz: `python artigo/gerar_docx.py` (saída em `artigo/saida/`).
+4. Para gerar o artigo em `.docx`, a partir da raiz: `python artigo/gerar_docx.py` (saída em `artigo/saida/`). O gerador usa o template de artigo da UNIFIMES em `refs/Template Artigo.docx`, que não é distribuído neste repositório.
 
 A semente aleatória é fixa (`config.py`). A base analítica derivada (`dados/`) é gerada pelo primeiro *script* e não é versionada.
 
